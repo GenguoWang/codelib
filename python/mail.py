@@ -7,14 +7,14 @@ from email.MIMEBase import MIMEBase
 from email.MIMEText import MIMEText
 from email.Utils import COMMASPACE, formatdate
 from email import Encoders
-import os
 import time
 timestamp = time.strftime('%Y-%m-%d', time.gmtime(time.time() - 24 * 60 * 60))
 #smtp configure
 smtpserver = 'smtp.live.com'
 port = 587
 smtpuser = 'wanggenguo@outlook.com'
-smtppass = 'yourpass'
+dirname = os.path.dirname(__file__)
+smtppass = open(os.path.join(dirname,"pass.private")).read()
 sendto = "wanggenguo@sina.com"
 
 srcPath = "E:/Projects/imleagues/"
@@ -98,4 +98,5 @@ def main():
 	if settings["sendemail"] == "true" or settings["sendemail"] == "yes" :
 		sendMail(settings["address"].split(","),bugname,messages,[bugname+".rar",])
 	os.system("pause")
-main()
+if __name__ == '__main__':
+    main()

@@ -21,6 +21,7 @@ srcPath = "E:/Projects/imleagues/"
 targetPathG = "E:/Projects/imleaguse other/reviewgenerator/"
 dirfile = "dirs.dat"
 
+# send email
 def sendMail(to, subject, text, files=[]):
     assert type(to) == list
     assert type(files) == list
